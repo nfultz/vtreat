@@ -103,7 +103,7 @@ plapply <- function(workList, worker,
 
 
 
-.is.bad <- function(v) { is.na(v) | is.nan(v) | (!is.finite(v)) }
+.is.bad <- function(v) { !is.finite(v) }
 
 # check if a vector has more than one value
 .has.range <- function(v) {
