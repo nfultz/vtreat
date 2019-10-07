@@ -69,20 +69,20 @@ plapply <- function(workList, worker,
   if(is.null(xcol)) {
     return(NULL)
   }
-  if("AsIs" %in% class(xcol)) {
+  if(inherits(xcol, "AsIs")) {
     return(NULL)
   }
   xcol <- as.vector(xcol) # defend against arrays, converts POSIXct to numeric, but not POSIXlt
   if(is.null(xcol)||(length(xcol)!=expectedLength)) {
     return(NULL)
   }
-  if("POSIXt" %in% class(xcol)) {
+  if(inherits(xcol, "POSIXt") {
     return(as.numeric(xcol))
   }
   if(length(class(xcol))!=1) {
     return(NULL)
   }
-  if(class(xcol) %in% c('list','AsIs')) {
+  if(inherits(xcol, "list")) {
     return(NULL)
   }
   if(is.factor(xcol)||is.character(xcol)) {
